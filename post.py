@@ -11,6 +11,14 @@ phishing_address = [
     "HQwqACbdUqrcbUmbv53B72HJKuQZ6XeSG1zb9H1rbzn3"
 ]
 
+nft_airdrop_address = [
+    "EpUuGSj4Qp46fzedkq8ForC5vfRb8nudp2u17H2tWGPb",
+    "DqFeG96sa5S7GvHiSk3rjw6xNzpyfK75yzq85RvZXXDA",
+    "FbyJGnaGKod83GeGgugRxLApfxpUA1bg1su4rqKxqyjr",
+    "2AWYu12aM1cr5V4Lsn5mMPJpoSTaajt1JfWmA5LJ8Ltz", 
+    "J1oUdSi2QPqJdJouV6WvP9q3hN2tTrk8hRD1sUSBxZxp"
+]
+
 def getSigForAddr(addr):
     headers = {
         'Content-Type': 'application/json',
