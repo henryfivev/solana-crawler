@@ -1,6 +1,9 @@
+import time
+import json
 import requests
 
 url = 'https://api.mainnet-beta.solana.com'
+file_path = './data/response'
 
 # 标签数据有误，需要大小写敏感
 phishing_address = [
@@ -55,16 +58,24 @@ def getSolTransaction(signature):
             "json"
         ]
     }
+
     response = requests.post(url, json=data, headers=headers)
 
-    # print(response.status_code)
-    # print(response.json())
     return response.json()
 
 if __name__ == "__main__":
+    file_path = file_path+str(int(time.time()))+'.txt'
+
     for address in phishing_address:
+        with open(file_path, 'a') as file:
+            file.write('\n## '+ address +'\n')
         sig_response_json = getSigForAddr(address)
         signatures = [entry['signature'] for entry in sig_response_json['result']]
+        
         for signature in signatures:
             trans_response_json = getSolTransaction(signature)
-            print(trans_response_json, '\n')
+            print(trans_response_json)
+            time.sleep(5)
+
+            with open(file_path, 'a') as file:
+                file.write(json.dumps(trans_response_json, indent=4)+'\n')
