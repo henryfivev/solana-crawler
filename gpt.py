@@ -1,11 +1,18 @@
+import os
+from dotenv import load_dotenv, find_dotenv
 import requests
 
-api_key = ""
+load_dotenv(find_dotenv())
+
+api_key = os.environ.get("OPENAI_API_KEY"),
 url = "https://api.gptapi.us/v1/chat/completions"
+
+# os.environ['HTTPS_PROXY'] = 'http://127.0.0.1:7890'
+# os.environ["HTTP_PROXY"] = 'http://127.0.0.1:7890'
 
 headers = {
     'Content-Type': 'application/json',
-    'Authorization': 'Bearer sk-LuHfwSuzHWPMCTof100dC7543bE5405489F5C191E40c1d57'
+    'Authorization': 'Bearer '+api_key
 }
 
 data = {
