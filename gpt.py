@@ -3,14 +3,14 @@ from dotenv import load_dotenv, find_dotenv
 import requests
 
 url = "https://api.gptapi.us/v1/chat/completions"
-api_key = os.environ.get("OPENAI_API_KEY"),
+api_key = os.environ.get("OPENAI_API_KEY")
 # os.environ['HTTPS_PROXY'] = 'http://127.0.0.1:7890'
 # os.environ["HTTP_PROXY"] = 'http://127.0.0.1:7890'
 
 def askGPT(content):
     headers = {
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer '+api_key
+        'Authorization': f'Bearer {api_key}'
     }
 
     data = {
@@ -35,4 +35,4 @@ def askGPT(content):
 
 if __name__ == "__main__":
     load_dotenv(find_dotenv())
-    askGPT()    
+    askGPT("could you tell me how to fry eggs?")    
