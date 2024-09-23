@@ -11,7 +11,12 @@ phishing_address = [
     "13qESscnJbEZjsUi4fv47nvxMcHjp4VNRapSuog1wYus",
     "CzXA1gwnbEByQfvNN5DbYZRLxxdDUGUgqCjTJrEBys1x",
     "48mpgkYNJuJhuFt6uk3N7erEVn2GXpFtStAhSK49Rx71",
-    "HQwqACbdUqrcbUmbv53B72HJKuQZ6XeSG1zb9H1rbzn3"
+    "HQwqACbdUqrcbUmbv53B72HJKuQZ6XeSG1zb9H1rbzn3",
+    "CpXF4pfESN44aiHVUC37ypNcRvNpKqwd1aEyvRSU5axW",
+    "fh2djPUyG3B8bv4jA3TUGtQnsEKRMy5iLaKh6bEQvie",
+    "73EEefkLgw9beP6YNqtqwk2T8UuBCW7QKEDfjQi7A3Q7",
+    "3WZSjw8CTn7KTDEKsWRv3E6ysACriGcntGtdph5ern9c",
+    "8zY6jjLRxGJgE4yKxFNigdXCbibTPLXMmuCkUqFS32Nq"
 ]
 
 nft_airdrop_address = [
@@ -19,7 +24,12 @@ nft_airdrop_address = [
     "DqFeG96sa5S7GvHiSk3rjw6xNzpyfK75yzq85RvZXXDA",
     "FbyJGnaGKod83GeGgugRxLApfxpUA1bg1su4rqKxqyjr",
     "2AWYu12aM1cr5V4Lsn5mMPJpoSTaajt1JfWmA5LJ8Ltz", 
-    "J1oUdSi2QPqJdJouV6WvP9q3hN2tTrk8hRD1sUSBxZxp"
+    "J1oUdSi2QPqJdJouV6WvP9q3hN2tTrk8hRD1sUSBxZxp",
+    "Fwo934dpJBJd13fFEtvyeD56kcTNoLf4vLY3PqxX5DNz",
+    "22QHmhd8AtuaDYyRQmmHAbLGghciMKBiGGSxe5Qd9XAE",
+    "4Kcm1GHZryfGcDhYLf2u9kLPM3JXPLkTzJJAHYYVZAoR",
+    "HbtSzZgPZJabqWgXV9t7S4n6RwkmFuUDze1tQYX22oAP",
+    "9p6adsm5fEy2Gm6peD6JPNi3UQ7Bd3Yj4xnTCf51RQTW"
 ]
 
 def getSigForAddr(addr):
@@ -55,11 +65,15 @@ def getSolTransaction(signature):
         'method': "getTransaction",
         "params": [
             signature,
-            "json"
+            {
+                "encoding": "jsonParsed",
+                "maxSupportedTransactionVersion": 0
+            }
         ]
     }
 
     response = requests.post(url, json=data, headers=headers)
+    time.sleep(5) # api接口限制，每10秒
 
     return response.json()
 
@@ -75,7 +89,6 @@ if __name__ == "__main__":
         for signature in signatures:
             trans_response_json = getSolTransaction(signature)
             print(trans_response_json)
-            time.sleep(5)
 
             with open(file_path, 'a') as file:
                 file.write(json.dumps(trans_response_json, indent=4)+'\n')
