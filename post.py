@@ -32,6 +32,14 @@ nft_airdrop_address = [
     "9p6adsm5fEy2Gm6peD6JPNi3UQ7Bd3Yj4xnTCf51RQTW"
 ]
 
+hack_address = [
+    "M54jeDLBDTLGaxSUCgedERTzNk13ZSiVaE9vNTbTtmu",
+    "FbyJGnaGKod83GeGgugRxLApfxpUA1bg1su4rqKxqyjr",
+    "7mPXrU2yC8K9Mph689FZDC2vRRRt38A7Vk4AsSMiQyzc",
+    "GQaz59ExxT4tyNcjNgFh484z1THbg9yrXNk7SFfNBwvt",
+    "DAfsQ1B15FdxzbtFsSEjb1rfm1gu2H7Zv9eTTnjr1Fj3"
+]
+
 def getSigForAddr(addr):
     headers = {
         'Content-Type': 'application/json',
@@ -80,7 +88,7 @@ def getSolTransaction(signature):
 if __name__ == "__main__":
     file_path = file_path+str(int(time.time()))+'.txt'
 
-    for address in phishing_address:
+    for address in hack_address:
         with open(file_path, 'a') as file:
             file.write('\n## '+ address +'\n')
         sig_response_json = getSigForAddr(address)

@@ -8,8 +8,26 @@ chainabuse上this is the scammer标记是什么意思？
 ## todo
 
 1. 分析response字段
+   1. data字段
 2. try-exception处理error
 3. apikey更换
+4. 漏交易了
+
+## 数据结构
+
+为方便处理
+
+json_list（list类型）
+1. A账户（dict类型）
+   1. address: asdfghjkl123
+   2. transactions（list类型）
+      1. 交易1（dict类型）
+      2. 交易2（dict类型）
+2. B账户（dict类型）
+   1. address: asdfghjkl123
+   2. transactions（list类型）
+      1. 交易1（dict类型）
+      2. 交易2（dict类型）
 
 ## response字段
 
