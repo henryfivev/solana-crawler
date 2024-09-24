@@ -11,7 +11,6 @@ chainabuse上this is the scammer标记是什么意思？
    1. data字段
 2. try-exception处理error
 3. apikey更换
-4. 漏交易了
 
 ## 数据结构
 
