@@ -58,6 +58,8 @@ json_list（list类型）
 
 ## error未处理
 
+### connection
+
 Traceback (most recent call last):
   File "/Users/henryfive/miniconda3/envs/crawler/lib/python3.8/site-packages/urllib3/connectionpool.py", line 775, in urlopen
     self._prepare_proxy(conn)
@@ -128,6 +130,15 @@ Traceback (most recent call last):
   File "/Users/henryfive/miniconda3/envs/crawler/lib/python3.8/site-packages/requests/adapters.py", line 682, in send
     raise ConnectionError(err, request=request)
 requests.exceptions.ConnectionError: ('Connection aborted.', ConnectionResetError(54, 'Connection reset by peer'))
+
+### gpt 400
+
+在phishing中
+
+guess：交易过长
+
+400
+{'error': {'message': "This model's maximum context length is 8192 tokens, however you requested 18744 tokens (18744 in your prompt; 0 for the completion). Please reduce your prompt; or completion length. (request id: 2024092509034137532941819038596) (request id: 2024092509034099808731363643671) (request id: 2024092509034087946709243145800)", 'type': 'invalid_request_error', 'param': '', 'code': None}} 
 
 ## response样例
 

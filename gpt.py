@@ -4,8 +4,6 @@ import requests
 
 url = "https://api.gptapi.us/v1/chat/completions"
 api_key = os.environ.get("OPENAI_API_KEY")
-# os.environ['HTTPS_PROXY'] = 'http://127.0.0.1:7890'
-# os.environ["HTTP_PROXY"] = 'http://127.0.0.1:7890'
 
 def askGPT(content):
     headers = {
