@@ -3,15 +3,17 @@ import xgboost as xgb
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score, accuracy_score, classification_report
 
+dataset = './dataset/'
+
 # 读取embeddings
-phishing_embeddings = pd.read_csv('phishing_embeddings.csv')
-phishing_labels = pd.read_csv('phishing_labels.csv')
+phishing_embeddings = pd.read_csv(f'{dataset}phishing_embeddings.csv')
+phishing_labels = pd.read_csv(f'{dataset}phishing_labels.csv')
 phishing_labels = phishing_labels['label'].tolist()
 
-nft_embeddings = pd.read_csv('nonphishing_nft_embeddings.csv')
-nft_labels = pd.read_csv('nonphishing_nft_labels.csv')
-hack_embeddings = pd.read_csv('nonphishing_hack_embeddings.csv')
-hack_labels = pd.read_csv('nonphishing_hack_labels.csv')
+nft_embeddings = pd.read_csv(f'{dataset}nonphishing_nft_embeddings.csv')
+nft_labels = pd.read_csv(f'{dataset}nonphishing_nft_labels.csv')
+hack_embeddings = pd.read_csv(f'{dataset}nonphishing_hack_embeddings.csv')
+hack_labels = pd.read_csv(f'{dataset}nonphishing_hack_labels.csv')
 
 nonphishing_embeddings = pd.concat([nft_embeddings, hack_embeddings], ignore_index=True)
 nonphishing_labels = pd.concat([nft_labels, hack_labels], ignore_index=True)
