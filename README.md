@@ -1,3 +1,19 @@
+## 项目说明
+
+post.py：请求账户对应的交易
+
+data.py：获得交易embedding
+
+classification.py：使用embedding和xgboost进行分类
+
+gpt.py：无关紧要的代码（可和gpt对话，保存了上下文窗口
+
+response1727064944.txt：保存最新一次交易爬取的结果
+
+./dataset：保存embedding和对应label
+
+## note
+
 爬取逻辑
 
 1. 选择一个url
